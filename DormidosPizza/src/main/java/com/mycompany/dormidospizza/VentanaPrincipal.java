@@ -5,18 +5,24 @@
  */
 package com.mycompany.dormidospizza;
 
-
+import Clases.Pizza;
+import java.util.ArrayList;
 /**
  *
  * @author PC1
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     public static VentanaPrincipal Inicio = new VentanaPrincipal();
-    public static Administracion Admin = new Administracion();
-    public static Ordenar OrdenPizza = new Ordenar();
+    public static Administracion Admin;
+    public static Ordenar OrdenPizza;
+    ArrayList<Pizza> listapizzas = new ArrayList<Pizza>();
     
     public VentanaPrincipal() {
         initComponents();
+        Admin = new Administracion();
+        Admin.setListapizzas(listapizzas);
+        OrdenPizza = new Ordenar();
+        OrdenPizza.setListapizzas(listapizzas);
     }
 
     /**
@@ -34,7 +40,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Castellar", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         jLabel1.setText("DORMIDOS PIZZAS");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 51, 255)));
 
@@ -56,27 +62,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(BtnOrden)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(btnAdmin)
                 .addGap(50, 50, 50))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(BtnOrden)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdmin)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();

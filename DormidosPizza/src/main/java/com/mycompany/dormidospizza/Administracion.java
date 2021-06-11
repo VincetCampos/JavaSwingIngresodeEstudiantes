@@ -15,14 +15,15 @@ import javax.swing.JOptionPane;
  */
 public class Administracion extends javax.swing.JFrame {
     
-    /**
-     * Creates new form Administracion
-     */
-    ArrayList<Pizza> listapizzas = new ArrayList<Pizza>();
+    public String sucur;
+    
+    ArrayList<Pizza> listapizzas;
     public Administracion() {
         initComponents();
     }
-    
+    public void setListapizzas(ArrayList<Pizza> lpizzas){
+        this.listapizzas = lpizzas;
+    }  
     private void AgregarPizzas(){
         Pizza pizzas = new Pizza();
         pizzas.setSucursal(cbSucursal.getSelectedItem().toString());
@@ -34,15 +35,21 @@ public class Administracion extends javax.swing.JFrame {
         
         mostrar();
         
+        txtNombrePizza.setText("");
+        txtPrecio.setText("100");
+        txtareaDescripcion.setText("");
+        
         JOptionPane.showMessageDialog(null, "Nueva Pizza en el sucursal de: " + pizzas.getSucursal());
     }
-    private void mostrar(){
+    
+    public void mostrar(){
         String matris[][] = new String [listapizzas.size()][3];
         
         for (int i = 0; i < listapizzas.size(); i++) {
             matris[i][0] = listapizzas.get(i).getNombre();
             matris[i][1] = listapizzas.get(i).getDescripcion();
             matris[i][2] = listapizzas.get(i).getPrecio();
+//            matris[i][3] = listapizzas.get(i).getSucursal();
         }
         tblistapizas.setModel(new javax.swing.table.DefaultTableModel(
            matris,
@@ -51,6 +58,7 @@ public class Administracion extends javax.swing.JFrame {
             }
         ));
     }
+    
     
     private void LimpiarAdmin(){
         txtNombrePizza.setText("");
@@ -165,7 +173,10 @@ public class Administracion extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(41, 41, 41))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -182,7 +193,7 @@ public class Administracion extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnVolverdeAdmin))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 15, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
