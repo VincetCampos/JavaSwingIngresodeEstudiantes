@@ -44,7 +44,7 @@ public class Ordenar extends javax.swing.JFrame {
     private void Actualizarlistapizza(){
         SucursalPedido = getSucursal();
         cmbPizzas.removeAllItems();
-        System.out.println(SucursalPedido);
+//        System.out.println(SucursalPedido);
         if(listapizzas != null){
             for (Pizza mipizza : listapizzas) {
 //                System.out.println(mipizza.getNombre());
