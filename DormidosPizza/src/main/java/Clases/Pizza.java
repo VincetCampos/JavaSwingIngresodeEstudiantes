@@ -4,21 +4,13 @@ package Clases;
  * @author PC1
  */
 public class Pizza {
-    private int id;
+    
     private String sucursal;
     private String nombre;
     private String precio;
     private String descripcion;
 
     public Pizza() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getSucursal() {
